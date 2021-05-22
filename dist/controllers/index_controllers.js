@@ -78,7 +78,7 @@ const post_employees = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
     catch (_b) {
         return res.status(404).json({
-            error: "can't add",
+            error: "Invalid value, can't add",
             time: new Date(),
         });
     }
@@ -100,7 +100,7 @@ const delete_employees = (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
     catch (_c) {
         return res.status(500).json({
-            error: "record can't delete",
+            error: "Employee not Found",
             time: new Date(),
         });
     }

@@ -1,0 +1,174 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the API for Employee Department Management System. You can find all the documentation here.",
+    "version": "1.0.0",
+    "title": "Employee Department System",
+    "termsOfService": "",
+    "contact": {
+      "email": "divyanshi.bansal_cs18@gla.ac.in",
+      "Name":"Divyanshi Bansal",
+      "College":"GLA University Mathura"
+    },
+    "license": {
+      "name": "Node.Js",
+      "url": ""
+    }
+  },
+  "host": "localhost 3001",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "employees",
+      "description": "Employee's information"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/employees": {
+      "get": {
+        "tags": [
+          "employees"
+        ],
+        "summary": "Get all the Employees Data from the Database",
+        "description": "",
+        "operationId": "get_employees",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Employees information"
+          },
+          "500":{
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/employee/:id": {
+      "get": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Get all the Employees Data by employee id from the Database",
+        "description": "",
+        "operationId": "get_employeesByID",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Employees Information"
+          },
+          "500": {
+            "description": "Internal Sever Error"
+          }
+        }
+        
+      },
+	  "put": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Update the experience of the particular employee by employee id",
+        "description": "",
+        "operationId": "put_employees",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated Successfully"
+          },
+          "404": {
+            "description": "Page can't update"
+          }
+        }
+        
+      }
+    },
+    "/post": {
+      "post": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Insert new Employee Data in a Database",
+        "description": "",
+        "operationId": "post_employees",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tags",
+            "in": "query",
+            "description": "Tags to filter by",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully inserted"
+          },
+          "404": {
+            "description": "Invalid value, can't add"
+          }
+        }
+      }
+    },
+    "/delete/:id": {
+      "delete": {
+        "tags": [
+          "employees"
+        ],
+        "summary": "Remove the Data of the employee from the database by taking employee id",
+        "description": "Deletes the Employee of the particular id ",
+        "operationId": "delete_employees",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the employee to be deleted",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully delete"
+          },
+          "500": {
+            "description": "Employee not Found"
+          }
+        }
+      }
+    }
+  }
+}

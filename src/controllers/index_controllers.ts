@@ -79,7 +79,7 @@ export const post_employees = async (
     });
   } catch {
     return res.status(404).json({
-      error: "can't add",
+      error: "Invalid value, can't add",
       time: new Date(),
     });
   }
@@ -103,7 +103,7 @@ const id = parseInt(req.params.id);
     });
   } catch {
     return res.status(500).json({
-      error: "record can't delete",
+      error: "Employee not Found",
       time: new Date(),
     });
   }
